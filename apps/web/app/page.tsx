@@ -1,24 +1,31 @@
-"use client"
+"use client";
 import { useState } from "react";
-import { useSocket } from "../context/SockerProvider"
-import classes from "./page.module.css"
+import { useSocket } from "../context/SockerProvider";
+import classes from "./page.module.css";
 
 export default function Page() {
   const { sendMessage, messages } = useSocket();
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
   return (
     <div>
       <div>
         <input
-          onChange={e => setMessage(e.target.value)}
-          className={classes["chat-input"]} placeholder="Type message here" />
+          onChange={(e) => setMessage(e.target.value)}
+          className={classes["chat-input"]}
+          placeholder="Type message here"
+        />
         <button
           onClick={(e) => sendMessage(message)}
-          className={classes["button"]}>Send</button>
+          className={classes["button"]}
+        >
+          Send
+        </button>
       </div>
       <div>
-        {messages.map((message) => <li>{message}</li>)}
+        {messages.map((message) => (
+          <li>{message}</li>
+        ))}
       </div>
     </div>
-  )
+  );
 }

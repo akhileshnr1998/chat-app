@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
-import { SocketProvider } from "../context/SockerProvider"
+import { SocketProvider } from "../context/SockerProvider";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,9 +25,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <SocketProvider>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
-      </body>
+        <body className={`${geistSans.variable} ${geistMono.variable}`}>
+          {children}
+        </body>
       </SocketProvider>
     </html>
   );
